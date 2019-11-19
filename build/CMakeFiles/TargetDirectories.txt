@@ -1,0 +1,3 @@
+/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/build/CMakeFiles/rebuild_cache.dir
+/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/build/CMakeFiles/SnakeGame.dir
+/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/build/CMakeFiles/edit_cache.dir
