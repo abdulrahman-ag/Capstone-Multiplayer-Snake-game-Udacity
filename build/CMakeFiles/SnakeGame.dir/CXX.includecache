@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/controller.cpp
-controller.h
-/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/controller.h
-iostream
--
-SDL.h
-/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/SDL.h
-snake.h
-/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/snake.h
-
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/controller.h
 snake.h
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/snake.h
@@ -30,6 +20,8 @@ SDL.h
 
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/game.h
 random
+-
+thread
 -
 SDL.h
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/SDL.h
@@ -49,14 +41,6 @@ game.h
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/game.h
 renderer.h
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/renderer.h
-
-/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/renderer.cpp
-renderer.h
-/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/renderer.h
-iostream
--
-string
--
 
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/renderer.h
 vector
