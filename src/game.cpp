@@ -27,7 +27,11 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
-    controller.HandleInput(running, snake, snake2);
+    std::thread player1Input(&Controller::HandleInput, controller, std::ref(running), std::ref(snake));
+    std::thread player2Input(&Controller::HandleInputPlayer2, controller, std::ref(running), std::ref(snake2));
+    player1Input.join();
+    player2Input.join();
+    
     Update();
     renderer.Render(snake, snake2, food);
 
@@ -61,7 +65,7 @@ void Game::PlaceFood() {
     y = random_h(engine);
     // Check that the location is not occupied by a snake item before placing
     // food.
-    if (!snake.SnakeCell(x, y)) {
+    if (!snake.SnakeCell(x, y) && !snake2.SnakeCell(x,y)) {
       food.x = x;
       food.y = y;
       return;
@@ -72,12 +76,15 @@ void Game::PlaceFood() {
 void Game::Update() {
   if (!snake.alive) return;
 
-  snake.Update();
-  snake2.Update();
+  snake.Update(snake2);
+  snake2.Update(snake);
 
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
 
+  int new_x_player2 = static_cast<int>(snake2.head_x);
+  int new_y_player2 = static_cast<int>(snake2.head_y);
+  
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
     score++;
@@ -86,6 +93,16 @@ void Game::Update() {
     snake.GrowBody();
     snake.speed += 0.02;
   }
+  
+  if(food.x == new_x_player2 && food.y == new_y_player2)
+  {
+    score++;
+    PlaceFood();
+    // Grow snake and increase speed.
+    snake2.GrowBody();
+    snake2.speed += 0.02; 
+  }
+  
 }
 
 int Game::GetScore() const { return score; }
