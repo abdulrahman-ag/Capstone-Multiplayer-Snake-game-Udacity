@@ -14,8 +14,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
   PlaceFood();
 }
 
-void Game::gameLoop(Snake lSnake, Controller const &controller, Renderer &renderer,std::size_t target_frame_duration)
-{
+void Game::Run(Controller const &controller, Renderer &renderer, std::size_t target_frame_duration) { 
 	Uint32 title_timestamp = SDL_GetTicks();
     Uint32 frame_start;
     Uint32 frame_end;
@@ -26,12 +25,6 @@ void Game::gameLoop(Snake lSnake, Controller const &controller, Renderer &render
     while (running) {
       frame_start = SDL_GetTicks();
 
-<<<<<<< HEAD
-      // Input, Update, Render - the main game loop.
-      controller.HandleInput(running, lSnake);
-      Update(lSnake);
-      renderer.Render(lSnake, food);
-=======
     // Input, Update, Render - the main game loop.
     std::thread player1Input(&Controller::HandleInput, controller, std::ref(running), std::ref(snake));
     std::thread player2Input(&Controller::HandleInputPlayer2, controller, std::ref(running), std::ref(snake2));
@@ -40,7 +33,7 @@ void Game::gameLoop(Snake lSnake, Controller const &controller, Renderer &render
     
     Update();
     renderer.Render(snake, snake2, food);
->>>>>>> tmp
+
 
       frame_end = SDL_GetTicks();
 
@@ -62,12 +55,7 @@ void Game::gameLoop(Snake lSnake, Controller const &controller, Renderer &render
       if (frame_duration < target_frame_duration) {
         SDL_Delay(target_frame_duration - frame_duration);
       }
-  	}
-}
-
-void Game::Run(Controller const &controller, Renderer &renderer, std::size_t target_frame_duration) { 
-  
-  std::thread t1(&Game::gameLoop, this, snake, controller, renderer, target_frame_duration);
+  	}  
 }
 
 void Game::PlaceFood() {
@@ -85,18 +73,16 @@ void Game::PlaceFood() {
   }
 }
 
-void Game::Update(Snake lSnake) {
-  if (!lSnake.alive) return;
+void Game::Update() {
+  if (!snake.alive || !snake2.alive) return;
 
-<<<<<<< HEAD
-  lSnake.Update();
-=======
+
   snake.Update(snake2);
   snake2.Update(snake);
->>>>>>> tmp
 
-  int new_x = static_cast<int>(lSnake.head_x);
-  int new_y = static_cast<int>(lSnake.head_y);
+
+  int new_x = static_cast<int>(snake.head_x);
+  int new_y = static_cast<int>(snake.head_y);
 
   int new_x_player2 = static_cast<int>(snake2.head_x);
   int new_y_player2 = static_cast<int>(snake2.head_y);
@@ -106,8 +92,8 @@ void Game::Update(Snake lSnake) {
     score++;
     PlaceFood();
     // Grow snake and increase speed.
-    lSnake.GrowBody();
-    lSnake.speed += 0.02;
+    snake.GrowBody();
+    snake.speed += 0.02;
   }
   
   if(food.x == new_x_player2 && food.y == new_y_player2)

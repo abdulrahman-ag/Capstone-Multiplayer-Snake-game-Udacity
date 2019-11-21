@@ -42,6 +42,14 @@ game.h
 renderer.h
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/renderer.h
 
+/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/renderer.cpp
+renderer.h
+/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/renderer.h
+iostream
+-
+string
+-
+
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/renderer.h
 vector
 -

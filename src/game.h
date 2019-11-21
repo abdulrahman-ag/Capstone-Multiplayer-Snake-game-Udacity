@@ -28,8 +28,7 @@ class Game {
   int score{0};
 
   void PlaceFood();
-  void Update(Snake lSnake);
-  void gameLoop(Snake lSnake, Controller const &controller, Renderer &renderer,std::size_t target_frame_duration);
+  void Update();
 };
 
 #endif
