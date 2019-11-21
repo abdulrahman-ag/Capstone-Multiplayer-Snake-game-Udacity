@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/controller.cpp
+controller.h
+/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/controller.h
+iostream
+-
+SDL.h
+/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/SDL.h
+snake.h
+/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/snake.h
+
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/controller.h
 snake.h
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/snake.h
@@ -57,6 +67,14 @@ SDL.h
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/SDL.h
 snake.h
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/snake.h
+
+/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/snake.cpp
+snake.h
+/home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/snake.h
+cmath
+-
+iostream
+-
 
 /home/workspace/Capstone-Multiplayer-Snake-game-Udacity/src/snake.h
 vector
