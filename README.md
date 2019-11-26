@@ -7,7 +7,6 @@ original Snake_Game repo: https://github.com/udacity/CppND-Capstone-Snake-Game .
 
 use arrow keys to control player1 and -W A S D- to controll player2.
 
-the original game:
 <img src="snake_game.gif"/>
 
 ## Dependencies for Running Locally
