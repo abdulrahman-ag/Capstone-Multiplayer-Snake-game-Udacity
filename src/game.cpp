@@ -14,20 +14,23 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
   PlaceFood();
 }
 
-void Game::Run(Controller const &controller, Renderer &renderer, std::size_t target_frame_duration) { 
+void Game::Run(Renderer &renderer, std::size_t target_frame_duration) { 
 	Uint32 title_timestamp = SDL_GetTicks();
     Uint32 frame_start;
     Uint32 frame_end;
     Uint32 frame_duration;
     int frame_count = 0;
     bool running = true;
-
+  	
+  	Controller player_1_controller(SDLK_UP, SDLK_DOWN, SDLK_RIGHT, SDLK_LEFT);
+  	Controller player_2_controller(SDLK_w, SDLK_s, SDLK_d, SDLK_a);
+  	
     while (running) {
       frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
-    std::thread player1Input(&Controller::HandleInput, controller, std::ref(running), std::ref(snake));
-    std::thread player2Input(&Controller::HandleInputPlayer2, controller, std::ref(running), std::ref(snake2));
+    std::thread player1Input(&Controller::HandleInput, player_1_controller, std::ref(running), std::ref(snake));
+    std::thread player2Input(&Controller::HandleInput, player_2_controller, std::ref(running), std::ref(snake2));
     player1Input.join();
     player2Input.join();
     
